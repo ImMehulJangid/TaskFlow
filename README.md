@@ -180,7 +180,7 @@ python tests/test_demo_flow.py
    - Add a new checklist item with `+ Add Step`.
    - Post a discussion comment using the comment box.
 7. **Verify Dashboard Reactivity**: Return to `📊 Dashboard` and observe that total tasks, completed tasks, and overall velocity percentage have updated to match SQLite records.
-8. **Role-Aware UI Demonstration**: In the top navigation bar, change the **Active Profile** dropdown from `Alice Chen (Admin)` to `Prof. Miller (Viewer)`. Notice that creation buttons are protected and destructive actions are restricted for Viewers. Switch back to Admin anytime.
+8. **Role-Aware UI Demonstration**: In the top navigation bar, change the **Active Profile** dropdown from `Mehul Jangid (Admin)` to `Prof. Rajesh Sharma (Viewer)`. Notice that creation buttons are protected and destructive actions are restricted for Viewers. Switch back to Admin anytime.
 9. **Analytics & Embedded Charts**: Click `📈 Reports & Analytics`. Review the dark-theme embedded Matplotlib charts (Status Donut, Priority Bars, Member Workload, Project Progress).
 10. **CSV Data Export & Persistence**:
     - Click `📥 Export Tasks to CSV`, select a destination path, and save. Open the CSV to verify all fields, assignees, dates, and checklist metrics.

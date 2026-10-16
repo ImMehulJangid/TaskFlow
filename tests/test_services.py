@@ -45,7 +45,7 @@ class TestServices(unittest.TestCase):
         proj = self.project_svc.create_project(
             name="Alpha Project",
             description="Alpha test project",
-            owner="Alice Chen",
+            owner="Mehul Jangid",
             deadline="2026-12-31",
             status="Active"
         )
@@ -57,7 +57,7 @@ class TestServices(unittest.TestCase):
             project_id=proj.id,
             name="Alpha Project Updated",
             description="Updated desc",
-            owner="Alice Chen",
+            owner="Mehul Jangid",
             deadline="2027-01-15",
             status="Completed"
         )
@@ -145,7 +145,7 @@ class TestServices(unittest.TestCase):
         self.assertTrue(matching[0].is_completed)
 
         # Add comment
-        comment = self.task_svc.add_comment(task.id, "Alice Chen", "Looks good for release!")
+        comment = self.task_svc.add_comment(task.id, "Mehul Jangid", "Looks good for release!")
         self.assertEqual(comment.content, "Looks good for release!")
 
         comments = self.task_svc.get_comments(task.id)

@@ -50,9 +50,9 @@ class TestUIIntegration(unittest.TestCase):
         self.assertEqual(app.active_view_name, "dashboard")
 
         # Test role switch
-        app._on_profile_switch("Bob Smith (Member)")
+        app._on_profile_switch("Anshul Verma (Member)")
         app.update()
-        self.assertEqual(app.current_user, "Bob Smith")
+        self.assertEqual(app.current_user, "Anshul Verma")
         self.assertEqual(app.user_role, "Member")
 
         app.destroy()

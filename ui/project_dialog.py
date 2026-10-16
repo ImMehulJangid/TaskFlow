@@ -117,7 +117,7 @@ class ProjectDialog(ctk.CTkToplevel):
         owner_lbl = ctk.CTkLabel(owner_col, text="Owner / Lead *", font=FONTS["body_bold"], text_color=COLORS["text_primary"])
         owner_lbl.pack(anchor="w", pady=(0, 4))
 
-        owner_options = [m.name for m in self.members] if self.members else ["Alice Chen", "Bob Smith"]
+        owner_options = [m.name for m in self.members] if self.members else ["Mehul Jangid", "Anshul Verma"]
         default_owner = self.project.owner if self.project else (self.current_user if self.current_user in owner_options else owner_options[0])
 
         self.owner_combo = ctk.CTkComboBox(

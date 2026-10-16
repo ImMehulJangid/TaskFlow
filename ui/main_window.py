@@ -45,7 +45,7 @@ class MainWindow(ctk.CTk):
         self.configure(fg_color=COLORS["bg_main"][0])
 
         # State management
-        self.current_user = "Alice Chen"
+        self.current_user = "Mehul Jangid"
         self.user_role = "Admin"
         self.current_project_id: Optional[int] = None
         self.active_view_name = "dashboard"
@@ -287,7 +287,7 @@ class MainWindow(ctk.CTk):
         ctk.CTkLabel(role_frame, text="Active Profile:", font=FONTS["small"], text_color=COLORS["text_muted"]).pack(side="left", padx=(0, 6))
 
         # Profile options format: "Name (Role)"
-        profile_options = [f"{m.name} ({m.role})" for m in self.members] if self.members else ["Alice Chen (Admin)"]
+        profile_options = [f"{m.name} ({m.role})" for m in self.members] if self.members else ["Mehul Jangid (Admin)"]
         default_profile = f"{self.current_user} ({self.user_role})"
 
         self.profile_combo = ctk.CTkComboBox(

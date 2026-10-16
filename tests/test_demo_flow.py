@@ -53,7 +53,7 @@ def run_demo_flow():
     projects = project_svc.get_all_projects()
     members = member_svc.get_all_members()
     target_project = projects[0]
-    target_member = members[1]  # Bob Smith
+    target_member = members[1]  # Anshul Verma
     print(f"-> Selected Target Project: '{target_project.name}' (ID: {target_project.id})")
     print(f"-> Selected Assignee: '{target_member.name}' ({target_member.role})")
 
@@ -69,7 +69,7 @@ def run_demo_flow():
         due_date="2026-10-30",
         labels="realtime,backend,networking",
         checklist_items=["Design socket payload", "Write connection handshake", "Test edge reconnection"],
-        current_user="Alice Chen"
+        current_user="Mehul Jangid"
     )
     print(f"-> Created Task ID {new_task.id}: '{new_task.title}'")
     print(f"   Assignee: {new_task.assignee_name}, Status: {new_task.status}, Priority: {new_task.priority}")
@@ -79,12 +79,12 @@ def run_demo_flow():
 
     # Step 6: Move from Backlog -> In Progress -> Done
     print("\n[Step 6] Moving Task Across Kanban Columns...")
-    task_svc.update_task_status(new_task.id, "In Progress", current_user="Bob Smith")
+    task_svc.update_task_status(new_task.id, "In Progress", current_user="Anshul Verma")
     t1 = task_svc.get_task_by_id(new_task.id)
     print(f"-> Advanced to: {t1.status}")
     assert t1.status == "In Progress"
 
-    task_svc.update_task_status(new_task.id, "Done", current_user="Bob Smith")
+    task_svc.update_task_status(new_task.id, "Done", current_user="Anshul Verma")
     t2 = task_svc.get_task_by_id(new_task.id)
     print(f"-> Advanced to: {t2.status}")
     assert t2.status == "Done"
@@ -94,8 +94,8 @@ def run_demo_flow():
     chk_items = task_svc.get_checklist_items(new_task.id)
     print(f"-> Initial checklist items count: {len(chk_items)}")
     # Complete step 1 and step 2
-    task_svc.toggle_checklist_item(chk_items[0].id, True, current_user="Bob Smith")
-    task_svc.toggle_checklist_item(chk_items[1].id, True, current_user="Bob Smith")
+    task_svc.toggle_checklist_item(chk_items[0].id, True, current_user="Anshul Verma")
+    task_svc.toggle_checklist_item(chk_items[1].id, True, current_user="Anshul Verma")
     t_updated = task_svc.get_task_by_id(new_task.id)
     print(f"-> Checklists completed: {t_updated.checklist_completed}/{t_updated.checklist_total} ({t_updated.checklist_progress_pct}%)")
     assert t_updated.checklist_completed == 2
@@ -103,7 +103,7 @@ def run_demo_flow():
     # Add comment
     comment = task_svc.add_comment(
         task_id=new_task.id,
-        author_name="Alice Chen",
+        author_name="Mehul Jangid",
         content="Excellent work on the connection handshake! Benchmarks look great."
     )
     print(f"-> Posted Comment by '{comment.author_name}': \"{comment.content}\"")
@@ -142,7 +142,7 @@ def run_demo_flow():
     with open(csv_path, "r", encoding="utf-8") as f:
         csv_text = f.read()
         assert "Implement WebSocket Live Sync" in csv_text
-        assert "Alice Chen" in csv_text
+        assert "Mehul Jangid" in csv_text
     print("-> CSV file contents verified successfully!")
 
     # Cleanup temp

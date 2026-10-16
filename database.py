@@ -196,11 +196,11 @@ class DatabaseManager:
         with self.transaction() as cur:
             # 1. Members
             members_data = [
-                ("Alice Chen", "alice.chen@university.edu", "Admin", "#8B5CF6"),
-                ("Bob Smith", "bob.smith@university.edu", "Member", "#3B82F6"),
-                ("Charlie Davis", "charlie.davis@university.edu", "Member", "#10B981"),
-                ("Diana Prince", "diana.prince@university.edu", "Member", "#F59E0B"),
-                ("Prof. Miller", "miller@university.edu", "Viewer", "#64748B")
+                ("Mehul Jangid", "mehul.jangid@university.edu", "Admin", "#8B5CF6"),
+                ("Anshul Verma", "anshul.verma@university.edu", "Member", "#3B82F6"),
+                ("Lalitesh meghval", "lalitesh.meghval@university.edu", "Member", "#10B981"),
+                ("Neha Gupta", "neha.gupta@university.edu", "Member", "#F59E0B"),
+                ("Prof. Rajesh Sharma", "rajesh.sharma@university.edu", "Viewer", "#64748B")
             ]
             member_ids = {}
             for name, email, role, color in members_data:
@@ -215,7 +215,7 @@ class DatabaseManager:
                 (
                     "TaskFlow Desktop Tracker",
                     "Offline-first collaborative Agile Kanban tracker and task workflow manager built for student engineering teams.",
-                    "Alice Chen",
+                    "Mehul Jangid",
                     "Active",
                     (now + timedelta(days=14)).strftime("%Y-%m-%d"),
                     iso_now
@@ -223,7 +223,7 @@ class DatabaseManager:
                 (
                     "CampusNav Indoor AR",
                     "Augmented reality campus navigation system connecting lecture halls, labs, and student centers.",
-                    "Bob Smith",
+                    "Anshul Verma",
                     "Active",
                     (now + timedelta(days=28)).strftime("%Y-%m-%d"),
                     iso_now
@@ -231,7 +231,7 @@ class DatabaseManager:
                 (
                     "StudySync Peer Portal",
                     "Intelligent peer tutoring matchmaking portal with automated scheduling and session whiteboards.",
-                    "Charlie Davis",
+                    "Lalitesh meghval",
                     "Active",
                     (now + timedelta(days=7)).strftime("%Y-%m-%d"),
                     iso_now
@@ -263,7 +263,7 @@ class DatabaseManager:
                     "title": "Design Database Schema & Constraints",
                     "desc": "Specify relational tables for projects, tasks, checklists, comments, and audit logs with foreign key cascades.",
                     "proj": p1,
-                    "assignee": member_ids["Charlie Davis"],
+                    "assignee": member_ids["Lalitesh meghval"],
                     "status": "Done",
                     "priority": "High",
                     "due": overdue_date1,
@@ -275,14 +275,14 @@ class DatabaseManager:
                         ("Validate cascade deletion rules", 1)
                     ],
                     "comments": [
-                        (member_ids["Alice Chen"], "Alice Chen", "Schema looks clean and normalized. Foreign keys verified.")
+                        (member_ids["Mehul Jangid"], "Mehul Jangid", "Schema looks clean and normalized. Foreign keys verified.")
                     ]
                 },
                 {
                     "title": "Build Interactive Kanban Board",
                     "desc": "Implement four-column drag/move board with status badges, priority markers, and filter controls.",
                     "proj": p1,
-                    "assignee": member_ids["Bob Smith"],
+                    "assignee": member_ids["Anshul Verma"],
                     "status": "In Progress",
                     "priority": "High",
                     "due": soon_date,
@@ -294,15 +294,15 @@ class DatabaseManager:
                         ("Add overdue date highlight badges", 1)
                     ],
                     "comments": [
-                        (member_ids["Diana Prince"], "Diana Prince", "Card spacing looks great. Let's make sure the badge colors pop in dark mode."),
-                        (member_ids["Bob Smith"], "Bob Smith", "Implementing the quick move arrows right now!")
+                        (member_ids["Neha Gupta"], "Neha Gupta", "Card spacing looks great. Let's make sure the badge colors pop in dark mode."),
+                        (member_ids["Anshul Verma"], "Anshul Verma", "Implementing the quick move arrows right now!")
                     ]
                 },
                 {
                     "title": "Task Detail Modal with Interactive Checklists",
                     "desc": "Provide pop-up dialog allowing users to toggle checklist items, read/write comments, and review audit trail.",
                     "proj": p1,
-                    "assignee": member_ids["Alice Chen"],
+                    "assignee": member_ids["Mehul Jangid"],
                     "status": "In Progress",
                     "priority": "Medium",
                     "due": overdue_date2,  # Overdue to demonstrate alert!
@@ -313,14 +313,14 @@ class DatabaseManager:
                         ("Activity history timeline", 0)
                     ],
                     "comments": [
-                        (member_ids["Prof. Miller"], "Prof. Miller", "Please ensure the checklist completion ratio updates dynamically.")
+                        (member_ids["Prof. Rajesh Sharma"], "Prof. Rajesh Sharma", "Please ensure the checklist completion ratio updates dynamically.")
                     ]
                 },
                 {
                     "title": "Analytics Dashboard & Matplotlib Charts",
                     "desc": "Render project status donut chart, priority breakdown, member workload distribution, and CSV export.",
                     "proj": p1,
-                    "assignee": member_ids["Diana Prince"],
+                    "assignee": member_ids["Neha Gupta"],
                     "status": "Review",
                     "priority": "Medium",
                     "due": future_date1,
@@ -332,14 +332,14 @@ class DatabaseManager:
                         ("Dark/light mode chart color synchronization", 1)
                     ],
                     "comments": [
-                        (member_ids["Alice Chen"], "Alice Chen", "Testing CSV export with edge case descriptions. Looks solid!")
+                        (member_ids["Mehul Jangid"], "Mehul Jangid", "Testing CSV export with edge case descriptions. Looks solid!")
                     ]
                 },
                 {
                     "title": "Implement Role-Based UI Permissions",
                     "desc": "Configure Admin, Member, and Viewer roles to control editing, deleting, and configuration privileges.",
                     "proj": p1,
-                    "assignee": member_ids["Charlie Davis"],
+                    "assignee": member_ids["Lalitesh meghval"],
                     "status": "Backlog",
                     "priority": "Low",
                     "due": future_date2,
@@ -355,7 +355,7 @@ class DatabaseManager:
                     "title": "Prepare Automated Unit & Integration Tests",
                     "desc": "Write test suites for SQLite database integrity, service layer calculations, and CSV export accuracy.",
                     "proj": p1,
-                    "assignee": member_ids["Diana Prince"],
+                    "assignee": member_ids["Neha Gupta"],
                     "status": "Done",
                     "priority": "High",
                     "due": overdue_date1,
@@ -373,7 +373,7 @@ class DatabaseManager:
                     "title": "Map Campus Floorplans into Vector Meshes",
                     "desc": "Convert architectural PDF blueprints into coordinate points for pathfinding graph.",
                     "proj": p2,
-                    "assignee": member_ids["Bob Smith"],
+                    "assignee": member_ids["Anshul Verma"],
                     "status": "In Progress",
                     "priority": "High",
                     "due": future_date1,
@@ -388,7 +388,7 @@ class DatabaseManager:
                     "title": "A* Pathfinding Algorithm Integration",
                     "desc": "Implement multi-floor shortest path routing considering elevators and accessibility ramps.",
                     "proj": p2,
-                    "assignee": member_ids["Charlie Davis"],
+                    "assignee": member_ids["Lalitesh meghval"],
                     "status": "Backlog",
                     "priority": "Medium",
                     "due": future_date2,
@@ -403,7 +403,7 @@ class DatabaseManager:
                     "title": "AR Camera Overlay Viewport",
                     "desc": "Render directional arrows overlaid onto live camera feed using ARKit/ARCore bridge.",
                     "proj": p2,
-                    "assignee": member_ids["Alice Chen"],
+                    "assignee": member_ids["Mehul Jangid"],
                     "status": "Review",
                     "priority": "High",
                     "due": soon_date,
@@ -420,7 +420,7 @@ class DatabaseManager:
                     "title": "Tutor Availability Calendar Component",
                     "desc": "Interactive weekly slot selection widget for tutors to set their open study hours.",
                     "proj": p3,
-                    "assignee": member_ids["Diana Prince"],
+                    "assignee": member_ids["Neha Gupta"],
                     "status": "Done",
                     "priority": "Medium",
                     "due": overdue_date1,
@@ -435,7 +435,7 @@ class DatabaseManager:
                     "title": "Automated Session Reminder Notifications",
                     "desc": "Send scheduled alert emails and calendar invites 1 hour before scheduled tutoring sessions.",
                     "proj": p3,
-                    "assignee": member_ids["Bob Smith"],
+                    "assignee": member_ids["Anshul Verma"],
                     "status": "Backlog",
                     "priority": "Low",
                     "due": future_date2,
@@ -480,13 +480,13 @@ class DatabaseManager:
 
             # 4. Activity Logs
             activities = [
-                (p1, None, "Alice Chen", "Project Created", "Created project 'TaskFlow Desktop Tracker'", iso_now),
-                (p1, None, "Charlie Davis", "Task Completed", "Completed 'Design Database Schema & Constraints'", iso_now),
-                (p1, None, "Bob Smith", "Status Change", "Moved 'Build Interactive Kanban Board' to In Progress", iso_now),
-                (p1, None, "Diana Prince", "Task Created", "Created 'Analytics Dashboard & Matplotlib Charts'", iso_now),
-                (p1, None, "Alice Chen", "Comment Added", "Commented on 'Design Database Schema & Constraints'", iso_now),
-                (p2, None, "Bob Smith", "Project Created", "Created project 'CampusNav Indoor AR'", iso_now),
-                (p3, None, "Diana Prince", "Task Completed", "Completed 'Tutor Availability Calendar Component'", iso_now)
+                (p1, None, "Mehul Jangid", "Project Created", "Created project 'TaskFlow Desktop Tracker'", iso_now),
+                (p1, None, "Lalitesh meghval", "Task Completed", "Completed 'Design Database Schema & Constraints'", iso_now),
+                (p1, None, "Anshul Verma", "Status Change", "Moved 'Build Interactive Kanban Board' to In Progress", iso_now),
+                (p1, None, "Neha Gupta", "Task Created", "Created 'Analytics Dashboard & Matplotlib Charts'", iso_now),
+                (p1, None, "Mehul Jangid", "Comment Added", "Commented on 'Design Database Schema & Constraints'", iso_now),
+                (p2, None, "Anshul Verma", "Project Created", "Created project 'CampusNav Indoor AR'", iso_now),
+                (p3, None, "Neha Gupta", "Task Completed", "Completed 'Tutor Availability Calendar Component'", iso_now)
             ]
             for proj_id, task_id, user, action, details, created_at in activities:
                 cur.execute("""
